@@ -1,0 +1,198 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/*
+  BRITISH GENTLEMEN'S CLUB PALETTE
+  ─────────────────────────────────
+  --background   : #0d1a10   deep forest green (billiard cloth, private members)
+  --foreground   : #f5f0e8   ivory / aged linen
+  --card         : #111f14   dark green card
+  --primary      : #c9a84c   burnished gold
+  --secondary    : #0f1a2e   deep navy ink
+  --muted        : #162619   muted green
+  --accent       : #2a4a30   bottle green accent
+  --border       : #2d4435   forest green border
+*/
+
+@layer base {
+  :root {
+    --font-sans: var(--font-sans);
+    --font-display: var(--font-display);
+
+    /* Backgrounds */
+    --background: 128 32% 8%;
+    --foreground: 38 40% 94%;
+
+    /* Cards */
+    --card: 128 30% 9%;
+    --card-foreground: 38 40% 94%;
+
+    /* Popover */
+    --popover: 128 30% 8%;
+    --popover-foreground: 38 40% 94%;
+
+    /* Primary — burnished gold */
+    --primary: 42 55% 55%;
+    --primary-foreground: 128 30% 6%;
+
+    /* Secondary — deep navy */
+    --secondary: 218 48% 12%;
+    --secondary-foreground: 38 35% 90%;
+
+    /* Muted — dark forest green */
+    --muted: 128 28% 11%;
+    --muted-foreground: 100 12% 60%;
+
+    /* Accent — bottle green */
+    --accent: 128 28% 23%;
+    --accent-foreground: 38 40% 94%;
+
+    /* Destructive */
+    --destructive: 0 65% 42%;
+    --destructive-foreground: 38 40% 94%;
+
+    /* Border — green-tinted */
+    --border: 128 22% 20%;
+    --input: 128 22% 14%;
+    --ring: 42 55% 55%;
+
+    /* Charts */
+    --chart-1: 42 55% 55%;
+    --chart-2: 128 28% 30%;
+    --chart-3: 218 48% 40%;
+    --chart-4: 42 35% 70%;
+    --chart-5: 100 20% 45%;
+
+    --radius: 0.25rem;
+
+    --sidebar-background: 128 32% 8%;
+    --sidebar-foreground: 38 40% 94%;
+    --sidebar-primary: 42 55% 55%;
+    --sidebar-primary-foreground: 128 30% 6%;
+    --sidebar-accent: 128 28% 11%;
+    --sidebar-accent-foreground: 38 40% 94%;
+    --sidebar-border: 128 22% 20%;
+    --sidebar-ring: 42 55% 55%;
+  }
+
+  .dark {
+    --background: 128 32% 8%;
+    --foreground: 38 40% 94%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "kern" 1, "liga" 1, "onum" 1;
+  }
+}
+
+/* ─── Club design utilities ─── */
+@layer utilities {
+
+  /* Deep forest green background */
+  .bg-club-page {
+    background:
+      radial-gradient(ellipse 120% 55% at 50% -10%, hsl(128 28% 14% / 0.4), transparent 55%),
+      radial-gradient(ellipse 60% 45% at 100% 40%, hsl(218 48% 10% / 0.25), transparent 60%),
+      radial-gradient(ellipse 50% 60% at 0% 90%, hsl(128 32% 7% / 0.2), transparent 55%),
+      linear-gradient(180deg, hsl(128 34% 7%) 0%, hsl(128 30% 9%) 50%, hsl(128 28% 7%) 100%);
+  }
+
+  /* Subtle diagonal hatch — library fabric texture */
+  .bg-hatch {
+    background-image:
+      repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 14px,
+        hsl(128 25% 20% / 0.04) 14px,
+        hsl(128 25% 20% / 0.04) 15px
+      ),
+      repeating-linear-gradient(
+        -45deg,
+        transparent,
+        transparent 14px,
+        hsl(128 25% 20% / 0.03) 14px,
+        hsl(128 25% 20% / 0.03) 15px
+      );
+  }
+
+  /* Fine gold grid */
+  .bg-grid-gold {
+    background-image:
+      linear-gradient(to right, hsl(42 45% 45% / 0.04) 1px, transparent 1px),
+      linear-gradient(to bottom, hsl(42 45% 45% / 0.04) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+
+  /* Gold text utilities */
+  .text-gold {
+    color: hsl(42 62% 58%);
+  }
+  .text-gold-muted {
+    color: hsl(42 38% 52%);
+  }
+  .text-ivory {
+    color: hsl(38 40% 94%);
+  }
+  .text-ivory-muted {
+    color: hsl(100 10% 65%);
+  }
+
+  /* Navy background utility */
+  .bg-navy {
+    background-color: hsl(218 48% 12%);
+  }
+
+  /* Gold border utilities */
+  .border-gold-fine {
+    border-color: hsl(42 50% 42% / 0.4);
+  }
+  .border-gold-medium {
+    border-color: hsl(42 58% 48% / 0.6);
+  }
+
+  /* Animations */
+  @keyframes fade-in {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes slide-up {
+    from { transform: translateY(100%); }
+    to   { transform: translateY(0); }
+  }
+  @keyframes scale-in {
+    from { transform: scale(0.93); opacity: 0; }
+    to   { transform: scale(1); opacity: 1; }
+  }
+
+  .animate-fade-in    { animation: fade-in  0.5s ease-out; }
+  .animate-fade-in-up { animation: fade-in  0.55s ease-out; }
+  .animate-slide-up   { animation: slide-up 0.4s cubic-bezier(0.16,1,0.3,1); }
+  .animate-scale-in   { animation: scale-in 0.3s ease-out; }
+
+  /* Legacy aliases */
+  .bg-whiskey-page       { @apply bg-club-page; }
+  .bg-aristocrat-page    { @apply bg-club-page; }
+  .bg-woodgrain          { @apply bg-hatch; }
+  .bg-aristocrat-damask  { @apply bg-hatch; }
+  .bg-grid-amber         { @apply bg-grid-gold; }
+  .text-gold-antique     { @apply text-gold; }
+  .text-champagne        { @apply text-ivory; }
+  .text-parchment        { @apply text-ivory; }
+  .text-parchment-muted  { @apply text-ivory-muted; }
+  .text-gold-dim         { color: hsl(42 38% 52%); }
+  .bg-whiskey-hero       { background: linear-gradient(160deg, hsl(128 34% 6%) 0%, hsl(218 48% 10%) 55%, hsl(128 30% 6%) 100%); }
+}
