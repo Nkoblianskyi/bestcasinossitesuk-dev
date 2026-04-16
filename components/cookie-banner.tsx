@@ -2,7 +2,6 @@
 
 import { useCookieConsent } from "@/context/cookie-consent-context"
 import { Button } from "@/components/ui/button"
-import { Cookie } from "lucide-react"
 
 export function CookieBanner() {
   const { showBanner, acceptAll, declineAll } = useCookieConsent()
@@ -17,7 +16,7 @@ export function CookieBanner() {
       <div className="mx-auto max-w-[1250px] px-5 py-5">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
           <div className="flex-1 flex items-start gap-3">
-            <Cookie className="h-5 w-5 text-gold flex-shrink-0 mt-0.5" aria-hidden />
+          
             <div>
               <h3 className="font-display text-[15px] font-semibold mb-1.5 text-ivory">
                 Cookies on bestcasinossitesuk.com
