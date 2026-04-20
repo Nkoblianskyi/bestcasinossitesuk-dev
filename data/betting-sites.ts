@@ -41,7 +41,7 @@ export const bettingSites: BettingSite[] = [
     bonus: "Deposit £10 & Get £20 Casino Bonus + 50 Free Spins",
     features: ["Extensive Slots Library", "Table Games", "Regular Offers"],
     paymentMethods: ["Visa/Mastercard", "PayPal", "Apple Pay"],
-    link: "https://www.betvictor.com/en-gb/casino",
+    link: "https://www.betvictor.com/",
     reviews: 3912,
   },
   {
